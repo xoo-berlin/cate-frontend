@@ -6,5 +6,8 @@
 export const environment = {
     production: false,
     env: 'local',
-    api: 'http://localhost:8080/'
+    host: 'http://localhost:8080/',
+    documentApi: '/api/v1/documents/',
+    searchApi: '/api/v1/search/'
+
 };

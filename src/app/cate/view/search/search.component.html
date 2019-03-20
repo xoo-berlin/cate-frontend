@@ -1,0 +1,196 @@
+<!-- warnings / info -->
+<p-toast></p-toast>
+
+<div class="ui-g ui-fluid">
+    <div class="ui-g-12">
+        <!-- input bar -->
+        <div class="ui-inputgroup">
+            <input type="text"
+                   [(ngModel)]="query"
+                   (keypress)="onKeyPress()"
+                   (input)="onSearchChange($event.target.value)"
+
+                   pInputText placeholder="Keyword"
+                   style="border-right: 0">
+            <button pButton type="button"
+                    label="Search"
+                    (click)="search()"></button>
+        </div>
+    </div>
+
+    <!-- messages -->
+
+
+    <!-- result table -->
+    <div class="ui-g-12">
+        <h1 *ngIf="!searchResult || !searchResult.items">Einfach Tippe, wir finden schon, was Sie suchen...</h1>
+
+        <p-table *ngIf="searchResult && searchResult.items"
+                 [value]="searchResult.items"
+                 dataKey="id"
+                 [style]="{'margin-bottom':'20px'}">
+            <ng-template pTemplate="caption">
+                <div>
+                    Export
+                </div>
+            </ng-template>
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>
+                        Relevanz
+                    </th>
+
+                    <th>
+                        Person
+                    </th>
+
+                    <th>
+                        Kontakt
+                    </th>
+
+                    <th>
+                        Adresse
+                    </th>
+
+                    <th>
+                        Callc Bemerkungen
+                    </th>
+
+                    <th>
+                        MeinCATE
+                    </th>
+
+                    <th>
+                        CallC ZO
+                    </th>
+
+                    <th>
+                        ZO first Sign (DBG)
+                    </th>
+
+                </tr>
+
+            </ng-template>
+            <ng-template pTemplate="body" let-searchItem>
+                <tr [pSelectableRow]="searchItem">
+
+                    <td>
+                        Ov-Score: {{searchItem.overallScore}}
+                    </td>
+
+                    <td>
+                        <!--
+                        Bild anzeigen, wenn gewünscht
+                          - intern -
+                          -> original bild, wenn da
+                          -> fallback bild, wenn nicht da
+                          - extern -
+                          -> fallback extern bild
+                        -->
+
+                        <!--
+                        like button
+                        like count
+                        -->
+                    </td>
+
+                    <td>
+                        <!--
+                        Link auf Namen (full name reverse highlighted)
+                        -> Link opens Employee Details mit RO / RW berechtigung
+                        -> Link opens Extern Details mit RO / RW berechtigung
+                        -->
+
+                        <!--
+                        Identifiers / User-Login Names of all 3 domains
+                        -->
+
+                        <!--
+                        <b>businessAreaShortNameHighlighted</b>
+                        businessAreaLongNameHighlighted
+                        businessAreaCostCenterHighlighted
+                        -->
+
+                        <!-- Cost Centers -->
+                        <!--
+                        roleHighlighted
+                        positionCostCenterHighlighted
+                        -->
+
+                        <!--
+                        link "Kollegen im Bereich anzeigen"
+                        -->
+                    </td>
+
+                    <td>
+                        <!-- tel -->
+                        <!--
+                        Tel:
+                        phoneWithPrefixHighlighted OR
+                        phoneWithoutPrefixHighlighted
+                        -->
+
+                        <!--
+                        Mobil:
+                        mobileHighlighted
+                        -->
+
+                        <!--
+                        Fax:
+                        faxWithPrefixHighlighted OR
+                        faxWithoutPrefixHighlighted
+                        -->
+
+                        <!--
+                        Email Link: mailto:...
+                        -->
+                    </td>
+
+                    <td>
+                        <!--
+                         Link: houseNameHighlighted
+                         -> open House details
+                        -->
+
+                        <!--
+                        street
+                        room
+                        zipcode
+                        -->
+
+                        <!--
+                        Link: Kollegen im Raum anzeigen
+                        -->
+                    </td>
+
+                    <td>
+                        <!--
+                        callCenterRemarksHighlighted
+                        -->
+                    </td>
+
+                    <td>
+                        <!--
+                        Meincate
+                        -->
+                    </td>
+
+                    <td>
+                        <!--
+                        123: combinedZO123
+                        abc: combinedZOABC
+                        Region: combinedZORegion
+                        -->
+                    </td>
+
+                    <td>
+                        ZO first
+                    </td>
+
+                </tr>
+            </ng-template>
+        </p-table>
+
+    </div>
+
+</div>

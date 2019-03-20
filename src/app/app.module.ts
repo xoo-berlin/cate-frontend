@@ -86,49 +86,30 @@ import {AppMenuComponent, AppSubMenuComponent} from './app.menu.component';
 import {AppTopBarComponent} from './app.topbar.component';
 import {AppFooterComponent} from './app.footer.component';
 import {DateFormatPipe} from '../const/DateFormatPipe';
-import {ContactComponent} from './demo/view/contact/contact.component';
-import {DashboardDemoComponent} from './demo/view/dashboarddemo.component';
+import {SearchService} from './cate/service/search/SearchService';
+import {ContactComponent} from './cate/view/contact/contact.component';
 
 import {PdfViewerModule} from 'ng2-pdf-viewer';
 
-import {CustomerSearchDialogComponent} from './demo/view/customer/customer-search-dialog.component';
-import {HistorySearchDialogComponent} from './demo/view/history/history-search-dialog.component';
-import {MeasurementSearchDialogComponent} from './demo/view/measurement/measurement-search-dialog.component';
-import {SquadSearchDialogComponent} from './demo/view/squad/squad-search-dialog.component';
-import {UserSearchDialogComponent} from './demo/view/user/user-search-dialog.component';
+import {HistorySearchDialogComponent} from './cate/view/history/history-search-dialog.component';
+import {SearchComponent} from './cate/view/search/search.component';
+import {UserSearchDialogComponent} from './cate/view/user/user-search-dialog.component';
 
-import {EmptyDemoComponent} from './demo/view/emptydemo.component';
-import {MeasurementComponent} from './demo/view/measurement/measurement.component';
-import {MeasurementsComponent} from './demo/view/measurement/measurements.component';
-import {MeasurementSearchComponent} from './demo/view/measurement/search.component';
-import {InvoiceComponent} from './demo/view/invoice/invoice.component';
-import {InvoicesComponent} from './demo/view/invoice/invoices.component';
-import {InvoiceSearchComponent} from './demo/view/invoice/search.component';
+import {EmptyDemoComponent} from './cate/view/emptydemo.component';
 
 // Services
-import {EventService} from './demo/service/eventservice';
-import {NodeService} from './demo/service/nodeservice';
-
-import {CarService} from './demo/service/carservice';
-import {CustomerService} from './demo/service/customer/CustomerService';
-import {CustomerAreaService} from './demo/service/measurement/CustomerAreaService';
-import {HistoryService} from './demo/service/history/HistoryService';
-import {InvoiceService} from './demo/service/invoice/InvoiceService';
-import {MeasurementService} from './demo/service/measurement/MeasurementService';
-import {SquadService} from './demo/service/squad/SquadService';
-import {StateService} from './demo/service/common/StateService';
-import {UnitService} from './demo/service/common/UnitService';
-import {UserService} from './demo/service/user/UserService';
+import {HistoryService} from './cate/service/history/HistoryService';
+import {MockService} from './cate/service/MockService';
+import {StateService} from './cate/service/common/StateService';
+import {UnitService} from './cate/service/common/UnitService';
+import {UserService} from './cate/service/user/UserService';
 
 
 registerLocaleData(localeDe);
 
 @NgModule({
     entryComponents: [
-        CustomerSearchDialogComponent,
-        MeasurementSearchDialogComponent,
         HistorySearchDialogComponent,
-        SquadSearchDialogComponent,
         UserSearchDialogComponent,
     ],
     imports: [
@@ -213,21 +194,12 @@ registerLocaleData(localeDe);
         AppSubMenuComponent,
         AppTopBarComponent,
         AppFooterComponent,
-        DashboardDemoComponent,
 
-        CustomerSearchDialogComponent,
-        MeasurementSearchDialogComponent,
         HistorySearchDialogComponent,
-        SquadSearchDialogComponent,
         UserSearchDialogComponent,
 
         ContactComponent,
-        MeasurementComponent,
-        MeasurementsComponent,
-        MeasurementSearchComponent,
-        InvoiceComponent,
-        InvoicesComponent,
-        InvoiceSearchComponent,
+        SearchComponent,
         EmptyDemoComponent,
         DateFormatPipe
     ],
@@ -235,12 +207,10 @@ registerLocaleData(localeDe);
         {provide: LocationStrategy, useClass: HashLocationStrategy},
         {provide: LOCALE_ID, useValue: 'de'},
         CurrencyPipe,
-        CarService,
-        CustomerService,
-        MeasurementService,
-        InvoiceService, HistoryService,
-        CustomerAreaService, SquadService, StateService, UnitService, UserService,
-        EventService, NodeService
+        MockService,
+        SearchService,
+        HistoryService,
+        StateService, UnitService, UserService
     ],
     bootstrap: [AppComponent]
 })
