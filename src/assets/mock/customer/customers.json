@@ -1,0 +1,104 @@
+{
+    "items": [
+        {
+            "id": 1,
+            "name": "Vattenfall GmbH",
+            "address1": "Mauerstraße 1",
+            "address2": "Eingang 2",
+            "address3": "Hinterhof, 3 OG",
+            "zip": "12345",
+            "city": "Berlin",
+            "country": "Deutschland"
+        },
+        {
+            "id": 2,
+            "name": "BWB",
+            "address1": "BWM Straße 1",
+            "address2": "Eingang 2",
+            "address3": "",
+            "zip": "98415",
+            "city": "Berlin",
+            "country": "Deutschland"
+        },
+        {
+            "id": 3,
+            "name": "O2 GMbh",
+            "address1": "Mauerstraße 1",
+            "address2": "Eingang 2",
+            "address3": "Hinterhof, 3 OG",
+            "zip": "22222",
+            "city": "Berlin",
+            "country": "Deutschland"
+        },
+        {
+            "id": 4,
+            "name": "Ingenieurbüro X",
+            "address1": "Y 1",
+            "address2": "Z 2",
+            "address3": "Hinterhof, 3 OG",
+            "zip": "441412",
+            "city": "Berlin",
+            "country": "Deutschland"
+        },
+        {
+            "id": 5,
+            "name": "Karl Klammer",
+            "address1": "Krummenseer Straße 31",
+            "address2": "4. OG",
+            "address3": "links",
+            "zip": "12345",
+            "city": "Berlin",
+            "country": "Deutschland"
+        },
+        {
+            "id": 11,
+            "name": "Vattenfall GmbH",
+            "address1": "Mauerstraße 1",
+            "address2": "Eingang 2",
+            "address3": "Hinterhof, 3 OG",
+            "zip": "12345",
+            "city": "Berlin",
+            "country": "Deutschland"
+        },
+        {
+            "id": 12,
+            "name": "BWB",
+            "address1": "BWM Straße 1",
+            "address2": "Eingang 2",
+            "address3": "",
+            "zip": "98415",
+            "city": "Berlin",
+            "country": "Deutschland"
+        },
+        {
+            "id": 13,
+            "name": "O2 GMbh",
+            "address1": "Mauerstraße 1",
+            "address2": "Eingang 2",
+            "address3": "Hinterhof, 3 OG",
+            "zip": "22222",
+            "city": "Berlin",
+            "country": "Deutschland"
+        },
+        {
+            "id": 14,
+            "name": "Ingenieurbüro X",
+            "address1": "Y 1",
+            "address2": "Z 2",
+            "address3": "Hinterhof, 3 OG",
+            "zip": "441412",
+            "city": "Berlin",
+            "country": "Deutschland"
+        },
+        {
+            "id": 15,
+            "name": "Karl Klammer",
+            "address1": "Krummenseer Straße 31",
+            "address2": "4. OG",
+            "address3": "links",
+            "zip": "12345",
+            "city": "Berlin",
+            "country": "Deutschland"
+        }
+    ]
+}

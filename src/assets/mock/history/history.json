@@ -1,0 +1,67 @@
+{
+    "items": [
+        {
+            "id": 1,
+            "entityClass": "Measurement",
+            "field": "Name",
+            "valueOld": "Kaaaarl",
+            "valueNew": "Kaaaarl",
+            "updatedOn": "01.01.2018, 12.23.32",
+            "updatedBy": "Luis"
+        },
+        {
+            "id": 2,
+            "entityClass": "Measurement",
+            "field": "Name",
+            "valueOld": "Kallllamer",
+            "valueNew": "Klammer",
+            "updatedOn": "01.01.2018, 12.23.32",
+            "updatedBy": "Luis"
+        },
+        {
+            "id": 3,
+            "entityClass": "Measurement",
+            "field": "Position",
+            "valueOld": "10 Steckdosen",
+            "valueNew": "100 Steckdosen",
+            "updatedOn": "01.02.2018, 12.23.32",
+            "updatedBy": "Josephine"
+        },
+        {
+            "id": 4,
+            "entityClass": "Measurement",
+            "field": "Position",
+            "valueOld": "12m Kabel",
+            "valueNew": "0m Kabel",
+            "updatedOn": "01.02.2018, 12.23.32",
+            "updatedBy": "Luis"
+        },
+        {
+            "id": 5,
+            "entityClass": "Measurement",
+            "field": "Status",
+            "valueOld": "in Bearbeitung",
+            "valueNew": "Bearbeitung abgeschlossen",
+            "updatedOn": "01.03.2018, 12.23.32",
+            "updatedBy": "Luis"
+        },
+        {
+            "id": 6,
+            "entityClass": "Measurement",
+            "field": "Status",
+            "valueOld": "in Bearbeitung",
+            "valueNew": "in Fakturierung",
+            "updatedOn": "01.04.2018, 12.23.32",
+            "updatedBy": "Luis"
+        },
+        {
+            "id": 7,
+            "entityClass": "Measurement",
+            "field": "Status",
+            "valueOld": "in Fakturierung",
+            "valueNew": "Fakturierung abgeschlossen",
+            "updatedOn": "01.05.2018, 12.23.32",
+            "updatedBy": "Luis"
+        }
+    ]
+}

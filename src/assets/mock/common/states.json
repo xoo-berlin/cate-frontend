@@ -1,0 +1,20 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "unbekannt"
+        },
+        {
+            "id": 2,
+            "name": "vorläufig"
+        },
+        {
+            "id": 3,
+            "name": "freigegeben"
+        },
+        {
+            "id": 4,
+            "name": "fakturiert"
+        }
+    ]
+}

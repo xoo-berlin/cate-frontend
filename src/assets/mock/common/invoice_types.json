@@ -1,0 +1,24 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "Teilrechnung"
+        },
+        {
+            "id": 2,
+            "name": "Schlussrechnung"
+        },
+        {
+            "id": 3,
+            "name": "Teilschlussrechnung"
+        },
+        {
+            "id": 4,
+            "name": "kumulierte Teilrechnung"
+        },
+        {
+            "id": 5,
+            "name": "kumulierte Teilschlussrechnung"
+        }
+    ]
+}

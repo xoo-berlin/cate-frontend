@@ -1,0 +1,48 @@
+{
+    "id": 1,
+    "invoiceNumber": "abc-1234",
+    "offerNumber": "123/00/1234",
+    "state": {
+        "id": 2,
+        "name": "Bearbeitung abgeschlossen"
+    },
+    "positions": [
+        {
+            "id": 1,
+            "invoiceId": 1,
+            "name": "Irgendeine Position"
+        },
+        {
+            "id": 2,
+            "invoiceId": 1,
+            "name": "Irgendeine zweite Position"
+        },
+        {
+            "id": 3,
+            "invoiceId": 1,
+            "name": "Irgendeine dritte Position"
+        }
+    ],
+    "payments": [
+        {
+            "id": 1,
+            "invoiceId": 1,
+            "dateOfPayment": "01.12.2018",
+            "amountOfPayment": {
+                "amount": 199.00,
+                "currency": "EUR",
+                "formatted": "199.00 EUR"
+            }
+        },
+        {
+            "id": 2,
+            "invoiceId": 1,
+            "dateOfPayment": "30.12.2018",
+            "amountOfPayment": {
+                "amount": 2099.17,
+                "currency": "EUR",
+                "formatted": "2099.17 EUR"
+            }
+        }
+    ]
+}
