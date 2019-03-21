@@ -22,54 +22,14 @@ export class AppMenuComponent implements OnInit, AfterViewInit {
 
     ngOnInit() {
         this.model = [
-            {label: 'Dashboard', icon: 'fa fa-fw fa-home', routerLink: ['/']},
-            {
-                label: 'Angebot', icon: 'fa fa-fw fa-clipboard',
-                disabled: true,
-                items: [
-                    {label: 'Übersicht', icon: 'fa fa-fw fa-dashboard', routerLink: ['/empty']},
-                    {label: 'Neues Angebot', icon: 'fa fa-fw fa-file', routerLink: ['/empty']},
-                    {label: 'Suchen', icon: 'fa fa-fw fa-search', routerLink: ['/empty']}
-                ]
-            },
-            {
-                label: 'Auftrag', icon: 'fa fa-fw fa-handshake-o',
-                disabled: true,
-                items: [
-                    {label: 'Übersicht', icon: 'fa fa-fw fa-dashboard', routerLink: ['/empty']},
-                    {label: 'Neuer Auftrag', icon: 'fa fa-fw fa-file', routerLink: ['/empty']},
-                    {label: 'Suchen', icon: 'fa fa-fw fa-search', routerLink: ['/empty']}
-                ]
-            },
-            {
-                label: 'Aufmaß', icon: 'fa fa-fw fa-list-alt',
-                items: [
-                    {label: 'Übersicht', icon: 'fa fa-fw fa-dashboard', routerLink: ['/measurements']},
-                    {label: 'Neues Aufmaß', icon: 'fa fa-fw fa-file', routerLink: ['/measurements/_new']},
-                    {label: 'Suchen', icon: 'fa fa-fw fa-search', routerLink: ['/measurements/_search']}
-                ]
-            },
-            {
-                label: 'Rechnungslegung', icon: 'fa fa-fw fa-calculator',
-                items: [
-                    {label: 'Übersicht', icon: 'fa fa-fw fa-dashboard', routerLink: ['/invoices']},
-                    {label: 'Neue Rechnung', icon: 'fa fa-fw fa-file', routerLink: ['/invoice']},
-                    {label: 'Suchen', icon: 'fa fa-fw fa-search', routerLink: ['/invoices/_search']}
-                ]
-            },
-            {
-                label: 'Kunden', icon: 'fa fa-fw fa-odnoklassniki',
-                items: [
-                    {label: 'Übersicht', icon: 'fa fa-fw fa-dashboard', routerLink: ['/empty']},
-                    {label: 'Neuer Kunde', icon: 'fa fa-fw fa-file', routerLink: ['/empty']},
-                    {label: 'Suchen', icon: 'fa fa-fw fa-search', routerLink: ['/empty']}
-                ]
-            },
+            {label: 'Start', icon: 'fa fa-fw fa-home', routerLink: ['/']},
             {
                 label: 'Einstellungen', icon: 'fa fa-fw fa-gear',
                 items: [
                     {label: 'Menü Oben', icon: 'fa fa-fw fa-bars', command: event => this.app.menuMode = 'horizontal'},
-                    {label: 'Menü Links', icon: 'fa fa-fw fa-bars', command: event => this.app.menuMode = 'static'}
+                    {label: 'Menü Links', icon: 'fa fa-fw fa-bars', command: event => this.app.menuMode = 'static'},
+                    {label: 'Overlay', icon: 'fa fa-fw fa-bars', command: event => this.app.menuMode = 'overlay' },
+                    {label: 'Popup', icon: 'fa fa-fw fa-bars', command: event => this.app.menuMode = 'popup' }
                 ]
             },
             {

@@ -10,15 +10,23 @@ export class MockService {
 
     search(input: string): SearchResult {
         return {
+            query: input,
             took: 10,
             page: 0,
             size: 100,
             totalElements: 100,
             totalPages: 1,
             items: [
-                {id: 'doc:1', name: 'just a name 1'},
-                {id: 'doc:2', name: 'just a name 2'},
-                {id: 'doc:3', name: 'just a name 3'}
+                {
+                    id: 'doc:1',
+                    name: 'just a name 1',
+                    title: 'Dipl. Inf',
+                    firstName: 'Ralf',
+                    lastName: 'Heyde',
+                    m: new Map([['key 1', 'value 1'], ['key 2', 'value 2']])
+                },
+                {id: 'doc:2', name: 'just a name 2', m: new Map([['key 1', 'value 1'], ['key 2', 'value 2']])},
+                {id: 'doc:3', name: 'just a name 3', m: new Map([['key 1', 'value 1'], ['key 2', 'value 2']])}
             ]
         };
     }

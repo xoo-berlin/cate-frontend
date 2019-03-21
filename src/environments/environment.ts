@@ -8,6 +8,7 @@ export const environment = {
     env: 'local',
     host: 'http://localhost:8080/',
     documentApi: '/api/v1/documents/',
-    searchApi: '/api/v1/search/'
+    searchApi: '/api/v1/search/',
+    requestDelay: 500
 
 };

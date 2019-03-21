@@ -6,10 +6,8 @@
         <!-- input bar -->
         <div class="ui-inputgroup">
             <input type="text"
-                   [(ngModel)]="query"
-                   (keypress)="onKeyPress()"
-                   (input)="onSearchChange($event.target.value)"
-
+                   autofocus
+                   (input)="onKeyPress($event)"
                    pInputText placeholder="Keyword"
                    style="border-right: 0">
             <button pButton type="button"
@@ -19,7 +17,7 @@
     </div>
 
     <!-- messages -->
-
+    <p-messages key="searchMessages"></p-messages>
 
     <!-- result table -->
     <div class="ui-g-12">
@@ -30,9 +28,7 @@
                  dataKey="id"
                  [style]="{'margin-bottom':'20px'}">
             <ng-template pTemplate="caption">
-                <div>
-                    Export
-                </div>
+                Export
             </ng-template>
             <ng-template pTemplate="header">
                 <tr>
@@ -75,10 +71,14 @@
                 <tr [pSelectableRow]="searchItem">
 
                     <td>
-                        Ov-Score: {{searchItem.overallScore}}
+                        Ov-Score:
+                        {{searchItem.id}}
+                        {{searchItem.name}}
                     </td>
 
                     <td>
+                        {{searchItem.m.get('key 1')}}
+                        <img alt="" src="search.component.html"/>
                         <!--
                         Bild anzeigen, wenn gewünscht
                           - intern -
@@ -95,6 +95,7 @@
                     </td>
 
                     <td>
+                        <a (click)="showDocumentDialog(searchItem)">{{fullname(searchItem)}}</a>
                         <!--
                         Link auf Namen (full name reverse highlighted)
                         -> Link opens Employee Details mit RO / RW berechtigung

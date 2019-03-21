@@ -4,7 +4,7 @@ import {DocumentUpdateRequest} from '../model/document/request/DocumentUpdateReq
 import {Document} from '../model/document/response/Document';
 
 @Injectable()
-export class MeasurementService {
+export class DocumentMapper {
 
     constructor(private http: HttpClient) {
     }
