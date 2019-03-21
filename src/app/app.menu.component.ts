@@ -18,18 +18,21 @@ export class AppMenuComponent implements OnInit, AfterViewInit {
     @ViewChild('layoutMenuScroller') layoutMenuScrollerViewChild: ScrollPanel;
 
     constructor(public app: AppComponent) {
+        this.changeLayout('lawrencium');
+        this.changeTheme('turquoise');
     }
 
     ngOnInit() {
         this.model = [
             {label: 'Start', icon: 'fa fa-fw fa-home', routerLink: ['/']},
+            {label: 'Organisation', icon: 'fa fa-fw fa-home', routerLink: ['/organizationdemo']},
             {
                 label: 'Einstellungen', icon: 'fa fa-fw fa-gear',
                 items: [
                     {label: 'Menü Oben', icon: 'fa fa-fw fa-bars', command: event => this.app.menuMode = 'horizontal'},
                     {label: 'Menü Links', icon: 'fa fa-fw fa-bars', command: event => this.app.menuMode = 'static'},
-                    {label: 'Overlay', icon: 'fa fa-fw fa-bars', command: event => this.app.menuMode = 'overlay' },
-                    {label: 'Popup', icon: 'fa fa-fw fa-bars', command: event => this.app.menuMode = 'popup' }
+                    {label: 'Overlay', icon: 'fa fa-fw fa-bars', command: event => this.app.menuMode = 'overlay'},
+                    {label: 'Popup', icon: 'fa fa-fw fa-bars', command: event => this.app.menuMode = 'popup'}
                 ]
             },
             {

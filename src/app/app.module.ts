@@ -5,6 +5,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CurrencyPipe, LocationStrategy, HashLocationStrategy, registerLocaleData} from '@angular/common';
+import {DataListModule, DataTableModule} from 'primeng/primeng';
 import {AppRoutes} from './app.routes';
 
 // Modules
@@ -86,12 +87,15 @@ import {AppMenuComponent, AppSubMenuComponent} from './app.menu.component';
 import {AppTopBarComponent} from './app.topbar.component';
 import {AppFooterComponent} from './app.footer.component';
 import {DateFormatPipe} from '../const/DateFormatPipe';
+import {HeroDetailComponent} from './cate/component/includes/search-item-userids';
+import {OrganizationChartComponent} from './cate/component/organisation/organization-chart.component';
 import {SearchService} from './cate/service/search/SearchService';
 import {ContactComponent} from './cate/view/contact/contact.component';
 
 import {PdfViewerModule} from 'ng2-pdf-viewer';
 
 import {HistorySearchDialogComponent} from './cate/view/history/history-search-dialog.component';
+import {OrganizationDemoComponent} from './cate/view/organizationdemo/organization-demo.component';
 import {SearchComponent} from './cate/view/search/search.component';
 import {UserSearchDialogComponent} from './cate/view/user/user-search-dialog.component';
 
@@ -186,7 +190,9 @@ registerLocaleData(localeDe);
         VirtualScrollerModule,
         KeyFilterModule,
         DynamicDialogModule,
-        PdfViewerModule
+        PdfViewerModule,
+        DataListModule,
+        DataTableModule
     ],
     declarations: [
         AppComponent,
@@ -197,11 +203,14 @@ registerLocaleData(localeDe);
 
         HistorySearchDialogComponent,
         UserSearchDialogComponent,
+        OrganizationChartComponent,
 
         ContactComponent,
         SearchComponent,
         EmptyDemoComponent,
-        DateFormatPipe
+        DateFormatPipe,
+        HeroDetailComponent,
+        OrganizationDemoComponent
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},

@@ -23,10 +23,14 @@ export class MockService {
                     title: 'Dipl. Inf',
                     firstName: 'Ralf',
                     lastName: 'Heyde',
-                    m: new Map([['key 1', 'value 1'], ['key 2', 'value 2']])
+                    m: new Map([['key 1', 'value 1'], ['key 2', 'value 2']]),
+                    userIds: [
+                        {key: 'BER', value: 'heyd01'},
+                        {key: 'BLN', value: 'heyd051'}
+                    ],
                 },
-                {id: 'doc:2', name: 'just a name 2', m: new Map([['key 1', 'value 1'], ['key 2', 'value 2']])},
-                {id: 'doc:3', name: 'just a name 3', m: new Map([['key 1', 'value 1'], ['key 2', 'value 2']])}
+                {id: 'doc:2', name: 'just a name 2', m: new Map([['key 1', 'value 1'], ['key 2', 'value 2']]), userIds: []},
+                {id: 'doc:3', name: 'just a name 3', m: new Map([['key 1', 'value 1'], ['key 2', 'value 2']]), userIds: []}
             ]
         };
     }

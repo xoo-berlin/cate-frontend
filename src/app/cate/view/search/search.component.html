@@ -78,7 +78,7 @@
 
                     <td>
                         {{searchItem.m.get('key 1')}}
-                        <img alt="" src="search.component.html"/>
+                        <img alt="" src="assets/layout/images/avatar1.png"/>
                         <!--
                         Bild anzeigen, wenn gewünscht
                           - intern -
@@ -105,6 +105,8 @@
                         <!--
                         Identifiers / User-Login Names of all 3 domains
                         -->
+                        <app-search-item-userids [searchItem]="searchItem">
+                        </app-search-item-userids>
 
                         <!--
                         <b>businessAreaShortNameHighlighted</b>

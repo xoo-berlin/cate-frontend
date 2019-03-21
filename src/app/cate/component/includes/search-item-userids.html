@@ -1,0 +1,10 @@
+<div *ngIf="searchItem?.userIds?.length">
+    <table>
+        <tbody>
+        <tr *ngFor="let userid of searchItem.userIds">
+            <td>{{userid.key}}</td>
+            <td>{{userid.value}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

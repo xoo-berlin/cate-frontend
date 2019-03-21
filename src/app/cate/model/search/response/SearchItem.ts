@@ -1,3 +1,5 @@
+import {KeyValue} from '../../common/KeyValue';
+
 export interface SearchItem {
     id?: string;
     name?: string;
@@ -8,4 +10,6 @@ export interface SearchItem {
     lastName?: string;
 
     m: Map<string, string>;
+
+    userIds: KeyValue<string, string>[];
 }
