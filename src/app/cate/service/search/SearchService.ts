@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../../environments/environment';
+import {SearchItem} from '../../model/search/response/SearchItem';
 import {User} from '../../model/user/response/User';
-import {Users} from '../../model/user/response/Users';
 import {SearchResult} from '../../model/search/response/SearchResult';
 import {MockService} from '../MockService';
 
@@ -38,7 +38,7 @@ export class SearchService {
         */
     }
 
-    id(documentId: string) {
+    id(documentId: string): Promise<SearchItem> {
         const host = environment.host;
         const searchApi = environment.searchApi;
         const http = `${host}${searchApi}${documentId}/`;
@@ -49,7 +49,7 @@ export class SearchService {
                 console.log(res);
                 return res;
             })
-            .then(res => <User>res)
+            .then(res => <SearchItem>res)
             .then(res => {
                 console.log(res);
                 return res;

@@ -39,10 +39,46 @@ export class AppMenuComponent implements OnInit, AfterViewInit {
                 label: 'Administration', icon: 'fa fa-fw fa-cogs',
                 items: [
                     {
-                        label: 'Nutzerverwaltung',
+                        label: 'Übersicht',
                         icon: 'fa fa-fw  fa-user',
                         disabled: true
-                    },
+                    }, {
+                        label: 'Einstellungen + Hilfeverwaltung',
+                        icon: 'fa fa-fw  fa-user',
+                        disabled: true
+                    }, {
+                        label: 'Backup and Restore',
+                        icon: 'fa fa-fw  fa-user',
+                        disabled: true
+                    }, {
+                        label: 'Nutzerverwaltung / Profile',
+                        icon: 'fa fa-fw  fa-user',
+                        disabled: true
+                    }, {
+                        label: 'Organisationsstruktur',
+                        icon: 'fa fa-fw  fa-user',
+                        disabled: true
+                    }, {
+                        label: 'Stichworte',
+                        icon: 'fa fa-fw  fa-user',
+                        disabled: true
+                    }, {
+                        label: 'Kompetenzen',
+                        icon: 'fa fa-fw  fa-user',
+                        disabled: true
+                    }, {
+                        label: 'Servicecenter',
+                        icon: 'fa fa-fw  fa-user',
+                        disabled: true
+                    }, {
+                        label: 'Historie',
+                        icon: 'fa fa-fw  fa-user',
+                        disabled: true
+                    }, {
+                        label: 'ZO Fehler anzeigen',
+                        icon: 'fa fa-fw  fa-user',
+                        disabled: true
+                    }
                 ]
             },
             {

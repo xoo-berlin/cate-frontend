@@ -1,0 +1,245 @@
+<!-- warnings / info -->
+<p-toast></p-toast>
+
+<p-toolbar>
+    <div class="ui-toolbar-group-left">
+        <button pButton type="button"
+                (click)="backClicked()"
+                label="Back" icon="pi pi-back" ></button>
+
+        <button pButton type="button" label="New" icon="pi pi-plus"></button>
+        <button pButton type="button" label="Upload" icon="pi pi-upload" class="ui-button-success"></button>
+
+        <i class="pi pi-bars"></i>
+    </div>
+
+    <div class="ui-toolbar-group-right">
+        <button pButton type="button" icon="pi pi-search"></button>
+        <button pButton type="button" icon="pi pi-calendar" class="ui-button-success"></button>
+        <button pButton type="button" icon="pi pi-times" class="ui-button-danger"></button>
+    </div>
+</p-toolbar>
+
+<div class="ui-g-12">
+    <div class="ui-g-12">
+
+        <!-- Bild -->
+        <!-- Bild Popup in groß -->
+        <!-- Bild Fallback (intern / extern)-->
+        <div class="ui-g-8"></div>
+        <div class="ui-g-4">Änderung</div>
+
+        <div class="ui-g-8">
+            <label for="idEmployeeName">Name</label>
+            <span id="idEmployeeName">TODO Name</span>
+        </div>
+        <div class="ui-g-4">Bitte an Personalservice wenden</div>
+
+        <div class="ui-g-8">
+            <label for="idEmail">Email</label>
+            <a id="idEmail" href="mailto:TODO EMAIL">TODO EMAIL</a>
+        </div>
+        <div class="ui-g-4">Bitte an Personalservice wenden</div>
+
+        <div class="ui-g-8">
+            <label for="idDirectManager">Direkte Führungskraft</label>
+            <!-- TODO click calls search for this manager -->
+            <span id="idDirectManager">TODO Direct Manager</span>
+        </div>
+        <div class="ui-g-4">Bitte an Personalservice wenden</div>
+
+        <div class="ui-g-8">
+            <label for="idPosition">Position</label>
+            <span id="idPosition">TODO Position</span>
+        </div>
+        <div class="ui-g-4">Bitte an Personalservice wenden</div>
+
+        <div class="ui-g-8">
+            <label for="idBusinessUnit">Bereich</label>
+            <div class="ui-g-12">
+                <span id="idBusinessUnit">businessAreaShortName</span>
+            </div>
+            <div class="ui-g-12">
+                <span>businessAreaLongName</span>
+            </div>
+            <div class="ui-g-12">
+                <span>businessAreaCostCenter</span>
+            </div>
+            <div class="ui-g-12">
+                <a href="#">Kollegen im Bereich suchen</a>
+            </div>
+        </div>
+        <div class="ui-g-4">Bitte an Personalservice wenden</div>
+
+        <div class="ui-g-8">
+            <div class="ui-g-12">
+                <label for="idServiceCenter">Standort</label>
+                <a id="idServiceCenter" href="#">TODO Service Center Name</a>
+            </div>
+            <div class="ui-g-12">
+                <label for="idStreet"></label>
+                <span id="idStreet">street + streetnumber</span>
+            </div>
+            <div class="ui-g-12">
+                <label for="idCity"></label>
+                <span id="idCity">zip + city + state</span>
+            </div>
+        </div>
+        <div class="ui-g-4">
+            <a href="http://ewe00004.p.brb.aok.net/aokess" target="_blank">
+                ESS Kommunikationsdaten
+            </a>
+        </div>
+
+        <div class="ui-g-8">
+            <div class="ui-g-12">
+                <label for="idRoom">Raum</label>
+                <span id="idRoom">Room</span>
+            </div>
+            <div class="ui-g-12">
+                <a href="#">
+                    Kollegen im Raum anzeigen
+                </a>
+            </div>
+        </div>
+        <div class="ui-g-4">Bitte an Personalservice wenden</div>
+
+        <div class="ui-g-8">
+            <div class="ui-g-12">
+                <label for="idPhone">Telefon</label>
+                <span id="idPhone">TODO Phone</span>
+            </div>
+            <div class="ui-g-12">
+                <label for="idFax">Fax</label>
+                <span id="idFax">TODO Fax</span>
+            </div>
+            <div class="ui-g-12">
+                <label for="idMobile">Mobil</label>
+                <span id="idMobile">TODO Mobil</span>
+            </div>
+        </div>
+        <div class="ui-g-4">
+            <a href="mailto:auftragskoordination@nordost.aok.de">
+                auftragskoordination@nordost.aok.de
+            </a>
+        </div>
+
+        <div class="ui-g-8">
+            <div class="ui-g-12">
+                <label for="idCallCenterRemarks">Callcenter Bemerkungen</label>
+                <p-scrollPanel id="idCallCenterRemarks" [style]="{width: '100%', height: '200px'}">
+                    Callcenter Remarks
+                </p-scrollPanel>
+            </div>
+        </div>
+        <div class="ui-g-4">
+            <a href="mailto:jensuwe.richter@nordost.aok.de">
+                jensuwe.richter@nordost.aok.de
+            </a>
+        </div>
+
+        <div class="ui-g-8">
+            <div class="ui-g-12">
+                <label>Zuordnungen</label>
+                <div class="ui-g-12">
+                    <label for="idAssignmentNumeric">123</label>
+                    <p-scrollPanel id="idAssignmentNumeric" [style]="{width: '100%', height: '200px'}">
+                        Assignment Numeric
+                    </p-scrollPanel>
+                </div>
+                <div class="ui-g-12">
+                    <label for="idAssignmentNumeric">ABC</label>
+                    <p-scrollPanel id="idAssignmentLetter" [style]="{width: '100%', height: '200px'}">
+                        Assignment Letter
+                    </p-scrollPanel>
+                </div>
+                <div class="ui-g-12">
+                    <label for="idAssignmentRegion">Region</label>
+                    <p-scrollPanel id="idAssignmentRegion" [style]="{width: '100%', height: '200px'}">
+                        Assignment Region
+                    </p-scrollPanel>
+                </div>
+            </div>
+        </div>
+        <div class="ui-g-4">
+            <a href="mailto:jensuwe.richter@nordost.aok.de">
+                jensuwe.richter@nordost.aok.de
+            </a>
+        </div>
+
+        <div class="ui-g-8">
+            <div class="ui-g-12">
+                <label>Oscare GP Nummer</label>
+                <div class="ui-g-12">
+                    <label for="idOscareGPBER">BER</label>
+                    <span id="idOscareGPBER">Oscare GP BER</span>
+                </div>
+                <div class="ui-g-12">
+                    <label for="idOscareGPBRB">BRB</label>
+                    <span id="idOscareGPBRB">Oscare GP BRB</span>
+                </div>
+                <div class="ui-g-12">
+                    <label for="idOscareGPMV">MV</label>
+                    <span id="idOscareGPMV">Oscare GP MV</span>
+                </div>
+            </div>
+        </div>
+        <div class="ui-g-4">
+        </div>
+
+        <!-- MCate -->
+        <div class="ui-g-8">
+            <div class="ui-g-12">
+                <label>Mein CATE</label>
+                <div class="ui-g-12">
+                    <label for="idDateOfBirth">Geburtstag</label>
+                    <span id="idDateOfBirth">TODO Geburstag</span>
+                </div>
+                <div class="ui-g-12">
+                    <label for="idRepresentation">Vertretung</label>
+                    <span id="idRepresentation">TODO Representation / noch keine Angabe</span>
+                </div>
+                <div class="ui-g-12">
+                    <label for="idResponsibilities">Aufgabengebiete</label>
+                    <span id="idResponsibilities">TODO Responsibilities/ noch keine Angabe</span>
+                </div>
+                <div class="ui-g-12">
+                    <label for="idCareer">Beruflicher Werdegang</label>
+                    <span id="idCareer">TODO Career</span>
+                </div>
+                <div class="ui-g-12">
+                    <label for="idSpecialKnowledge">Besondere Kenntnisse</label>
+                    <p-scrollPanel id="idSpecialKnowledge" [style]="{width: '100%', height: '200px'}">
+                        TODO Besondere Kenennitsse
+                    </p-scrollPanel>
+                </div>
+                <div class="ui-g-12">
+                    <label for="idInterests">Interessen</label>
+                    <p-scrollPanel id="idInterests" [style]="{width: '100%', height: '200px'}">
+                        TODO Interessen
+                    </p-scrollPanel>
+                </div>
+            </div>
+        </div>
+        <div class="ui-g-4">
+        </div>
+
+
+        <div class="ui-g-12">
+            <label for="idHealthTips">Mein ultimativer Gesundheitstipp:</label>
+            <span id="idHealthTips">TODO Gesundheitstips / Noch keine Angabe</span>
+        </div>
+        <div class="ui-g-12">
+            <label for="idAlimentationTips">Meine Ernährungstipps:</label>
+            <span id="idAlimentationTips">TODO Ernährungstipps</span>
+        </div>
+        <div class="ui-g-12">
+            <label for="idAgitationTips">Mein Bewegungstipps:</label>
+            <span id="idAgitationTips">TODO Bewegungstipps / Noch keine Angabe</span>
+        </div>
+        <div class="ui-g-12">
+            <label for="idRelaxationTips">Meine Entspannungstipps:</label>
+            <span id="idRelaxationTips">TODO Entspannungstipps / Noch keine Angabe</span>
+        </div>
+    </div>
+</div>

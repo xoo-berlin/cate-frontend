@@ -7,13 +7,21 @@
         <div class="ui-inputgroup">
             <input type="text"
                    autofocus
+                   [ngModel]="query"
                    (input)="onKeyPress($event)"
                    pInputText placeholder="Keyword"
                    style="border-right: 0">
             <button pButton type="button"
                     label="Search"
                     (click)="search()"></button>
+            <button pButton type="button"
+                    label="Zurücksetzen"
+                    (click)="reset()"></button>
         </div>
+    </div>
+
+    <div *ngIf="searchResult && searchResult.items" class="ui-g-12">
+        <span>Meinten Sie vielleicht: ABC</span>
     </div>
 
     <!-- messages -->
@@ -28,16 +36,28 @@
                  dataKey="id"
                  [style]="{'margin-bottom':'20px'}">
             <ng-template pTemplate="caption">
-                Export
+                <div class="ui-helper-clearfix">
+                    <div class="ui-g">
+                        <div class="ui-g-12 ui-md-4" style="text-align:left">
+                        </div>
+                        <div class="ui-g-6 ui-md-4 filter-container">
+                            <span>Hello World</span>
+                        </div>
+                        <div class="ui-g-6 ui-md-4" style="text-align:right">
+                            <p-button label="Optionen"></p-button>
+                            <p-button label="Export"></p-button>
+                        </div>
+                    </div>
+                </div>
             </ng-template>
             <ng-template pTemplate="header">
                 <tr>
-                    <th>
-                        Relevanz
+                    <th *ngIf="debug">
+                        <span>DEBUG</span>
                     </th>
 
                     <th>
-                        Person
+                        <span>Person</span>
                     </th>
 
                     <th>
@@ -53,15 +73,7 @@
                     </th>
 
                     <th>
-                        MeinCATE
-                    </th>
-
-                    <th>
                         CallC ZO
-                    </th>
-
-                    <th>
-                        ZO first Sign (DBG)
                     </th>
 
                 </tr>
@@ -70,16 +82,23 @@
             <ng-template pTemplate="body" let-searchItem>
                 <tr [pSelectableRow]="searchItem">
 
-                    <td>
-                        Ov-Score:
-                        {{searchItem.id}}
-                        {{searchItem.name}}
+                    <!-- relevance -->
+                    <td *ngIf="debug">
+                        <div class="ui-g-12">
+                            <label for="idScoreOV">OV Score:</label>
+                            <span id="idScoreOV">{{searchItem.dbgScoreOV}}</span>
+                        </div>
+
+                        <div class="ui-g-12">
+                            <label for="idDebugAssignmentFirst">DBG Assignment 1st:</label>
+                            <span id="idDebugAssignmentFirst">{{searchItem.dbgAssignmentFirst}}</span>
+                        </div>
                     </td>
 
+                    <!-- person -->
                     <td>
-                        {{searchItem.m.get('key 1')}}
-                        <img alt="" src="assets/layout/images/avatar1.png"/>
-                        <!--
+                        <div class="ui-g-3">
+                            <!--
                         Bild anzeigen, wenn gewünscht
                           - intern -
                           -> original bild, wenn da
@@ -87,94 +106,137 @@
                           - extern -
                           -> fallback extern bild
                         -->
+                            <img alt="" src="assets/layout/images/avatar1.png"/>
+                        </div>
 
                         <!--
                         like button
                         like count
                         -->
+                        <div class="ui-g-9">
+                            <div class="ui-g-12">
+                                <!--
+                                Link auf Namen (full name reverse highlighted)
+                                -> Link opens Employee Details mit RO / RW berechtigung
+                                -> Link opens Extern Details mit RO / RW berechtigung
+                                -->
+                                <a (click)="showUserDetail(searchItem)">{{fullname(searchItem)}}</a>
+                            </div>
+                            <div class="ui-g-12">
+                                <!--
+                                Identifiers / User-Login Names of all 3 domains
+                                -->
+                                <app-search-item-userids [searchItem]="searchItem"></app-search-item-userids>
+                            </div>
+                            <div class="ui-g-12">
+                                <!--
+                                 <b>businessAreaShortNameHighlighted</b>
+                                 businessAreaLongNameHighlighted
+                                 businessAreaCostCenterHighlighted
+                                 -->
+                                TODO
+                            </div>
+                            <div class="ui-g-12">
+                                <!-- Cost Centers -->
+                                <!--
+                                roleHighlighted
+                                positionCostCenterHighlighted
+                                -->
+                                TODO
+                            </div>
+                        </div>
+                        <!--
+                    link "Kollegen im Bereich anzeigen"
+                    -->
+                        <div class="ui-g-12">
+                            <a (click)="searchInBusinessUnit(searchItem)">Kollegen im Bereich</a>
+                        </div>
                     </td>
 
-                    <td>
-                        <a (click)="showDocumentDialog(searchItem)">{{fullname(searchItem)}}</a>
-                        <!--
-                        Link auf Namen (full name reverse highlighted)
-                        -> Link opens Employee Details mit RO / RW berechtigung
-                        -> Link opens Extern Details mit RO / RW berechtigung
-                        -->
-
-                        <!--
-                        Identifiers / User-Login Names of all 3 domains
-                        -->
-                        <app-search-item-userids [searchItem]="searchItem"></app-search-item-userids>
-
-                        <!--
-                        <b>businessAreaShortNameHighlighted</b>
-                        businessAreaLongNameHighlighted
-                        businessAreaCostCenterHighlighted
-                        -->
-
-                        <!-- Cost Centers -->
-                        <!--
-                        roleHighlighted
-                        positionCostCenterHighlighted
-                        -->
-
-                        <!--
-                        link "Kollegen im Bereich anzeigen"
-                        -->
-                    </td>
-
+                    <!-- contact -->
                     <td>
                         <!-- tel -->
-                        <!--
-                        Tel:
-                        phoneWithPrefixHighlighted OR
-                        phoneWithoutPrefixHighlighted
-                        -->
+                        <div class="ui-g-12">
+                            <!--
+                            Tel:
+                            phoneWithPrefixHighlighted OR
+                            phoneWithoutPrefixHighlighted
+                            -->
+                            <label for="idPhone">Tel:</label>
+                            <span id="idPhone">{{searchItem.phone}}</span>
+                        </div>
 
-                        <!--
-                        Mobil:
-                        mobileHighlighted
-                        -->
+                        <div class="ui-g-12">
+                            <!--
+                            Mobil:
+                            mobileHighlighted
+                            -->
+                            <label for="idCellular">Mobil:</label>
+                            <span id="idCellular">{{searchItem.mobile}}</span>
+                        </div>
 
-                        <!--
-                        Fax:
-                        faxWithPrefixHighlighted OR
-                        faxWithoutPrefixHighlighted
-                        -->
+                        <div class="ui-g-12">
+                            <!--
+                            Fax:
+                            faxWithPrefixHighlighted OR
+                            faxWithoutPrefixHighlighted
+                            -->
+                            <label for="idFax">Fax:</label>
+                            <span id="idFax">{{searchItem.fax}}</span>
+                        </div>
 
-                        <!--
-                        Email Link: mailto:...
-                        -->
+
+                        <div class="ui-g-12">
+                            <!--
+                            Email Link: mailto:...
+                            -->
+                            <a href="mailto:{{searchItem.email}}">{{searchItem.email}}</a>
+                        </div>
+
                     </td>
 
                     <td>
-                        <!--
-                         Link: houseNameHighlighted
-                         -> open House details
-                        -->
+                        <div class="ui-g-12">
+                            <!--
+                            Link: houseNameHighlighted
+                            -> open House details
+                            -->
+                            <label for="idBuilding">Service-Center:</label>
+                            <span id="idBuilding">{{searchItem.buildingName}}</span>
+                        </div>
 
-                        <!--
-                        street
-                        room
-                        zipcode
-                        -->
 
-                        <!--
-                        Link: Kollegen im Raum anzeigen
-                        -->
+                        <div class="ui-g-12">
+                            <span>{{searchItem.street}} {{searchItem.streetNumber}}</span>
+
+                            <label for="idRoom">Raum:</label>
+                            <span id="idRoom">{{searchItem.room}}</span>
+                            <span>{{searchItem.zipCode}} {{searchItem.city}}</span>
+                            <!--
+                            street
+                            room
+                            zipcode
+                            -->
+                        </div>
+                        <div class="ui-g-12">
+                            <!--
+                            Link: Kollegen im Raum anzeigen
+                            -->
+                            <a (click)="searchInRoom(searchItem)">Kollegen im Raum</a>
+                        </div>
                     </td>
 
                     <td>
                         <!--
                         callCenterRemarksHighlighted
                         -->
-                    </td>
-
-                    <td>
-                        <!--
-                        Meincate
-                        -->
+                        <p-scrollPanel [style]="{width: '100%', height: '100px'}">
+                            Bla
+                            <span class="ui-state-highlight">
+                                Bli
+                            </span>
+                            Blub
+                        </p-scrollPanel>
                     </td>
 
                     <td>
@@ -183,10 +245,18 @@
                         abc: combinedZOABC
                         Region: combinedZORegion
                         -->
-                    </td>
-
-                    <td>
-                        ZO first
+                        <div class="ui-g-12">
+                            <label for="idClassificationNumeric">123:</label>
+                            <span id="idClassificationNumeric">{{searchItem.assignmentNumeric}}</span>
+                        </div>
+                        <div class="ui-g-12">
+                            <label for="idClassificationLetter">ABC:</label>
+                            <span id="idClassificationLetter">{{searchItem.assignmentLetter}}</span>
+                        </div>
+                        <div class="ui-g-12">
+                            <label for="idClassificationRegion">Region:</label>
+                            <span id="idClassificationRegion">{{searchItem.assignmentRegion}}</span>
+                        </div>
                     </td>
 
                 </tr>

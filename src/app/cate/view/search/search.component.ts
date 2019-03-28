@@ -1,4 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Location} from '@angular/common';
 import {DialogService, Message, MessageService} from 'primeng/api';
 import {SearchResult} from '../../model/search/response/SearchResult';
 import {environment} from '../../../../environments/environment';
@@ -9,15 +11,31 @@ import {SearchItem} from '../../model/search/response/SearchItem';
     templateUrl: './search.component.html',
     providers: [DialogService, MessageService]
 })
-export class SearchComponent {
+export class SearchComponent implements OnInit {
 
+    debug?: boolean;
     query?: string;
     searchResult?: SearchResult;
 
     timer;
 
-    constructor(private messageService: MessageService,
+    constructor(private route: ActivatedRoute,
+                private router: Router,
+                private location: Location,
+                private dialogService: DialogService,
+                private messageService: MessageService,
                 private searchService: SearchService) {
+    }
+
+    ngOnInit(): void {
+        this.route.queryParamMap.subscribe(params => {
+            console.log('params');
+            console.log(params);
+
+            this.debug = params.has('dbg');
+            this.query = params.get('q');
+            this.search();
+        });
     }
 
     onKeyPress(event) {
@@ -39,6 +57,17 @@ export class SearchComponent {
             },
             environment.requestDelay);
 
+    }
+
+    reset() {
+        this.query = '';
+        this.searchResult = null;
+
+        this.initURL();
+    }
+
+    initURL() {
+        this.location.replaceState('/', `q=${this.query}`);
     }
 
     /**
@@ -63,6 +92,9 @@ export class SearchComponent {
                         this.searchResult = searchResult;
                     }
                 )
+                .then(() => {
+                    this.initURL();
+                })
                 .catch(reason => {
 
                     const message: Message = {
@@ -78,6 +110,15 @@ export class SearchComponent {
                 });
             console.log('Search is called with: ' + this.query);
         }
+    }
+
+    searchInBusinessUnit(searchItem: SearchItem) {
+        console.log(`searchInBusinessUnit was called with Searchitem: ${searchItem}`);
+
+    }
+
+    searchInRoom(searchItem: SearchItem) {
+        console.log(`SearchInRoom was called with Searchitem: ${searchItem}`);
 
     }
 
@@ -92,7 +133,12 @@ export class SearchComponent {
         }
     }
 
-    showDocumentDialog(searchItem) {
+    showUserDetail(searchItem: SearchItem) {
+        this.router.navigate(['/details/', searchItem.id]);
+        // you have to check this out by passing required route value.
+        // this line will redirect you to your destination. By reaching to destination you can close your loader service.
+        // please note this implementation may vary according to your routing code.
 
     }
+
 }

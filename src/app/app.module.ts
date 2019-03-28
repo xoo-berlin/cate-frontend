@@ -4,7 +4,7 @@ import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {CurrencyPipe, LocationStrategy, HashLocationStrategy, registerLocaleData} from '@angular/common';
+import {CurrencyPipe, Location, LocationStrategy, HashLocationStrategy, registerLocaleData} from '@angular/common';
 import {DataListModule, DataTableModule} from 'primeng/primeng';
 import {AppRoutes} from './app.routes';
 
@@ -87,16 +87,20 @@ import {AppMenuComponent, AppSubMenuComponent} from './app.menu.component';
 import {AppTopBarComponent} from './app.topbar.component';
 import {AppFooterComponent} from './app.footer.component';
 import {DateFormatPipe} from '../const/DateFormatPipe';
+import {UserDetailDialogComponent} from './cate/component/dialogs/user/user-detail-dialog.component';
+//
+import {AdministrationComponent} from './cate/view/administration/administration.component';
+import {ContactComponent} from './cate/view/contact/contact.component';
 import {HeroDetailComponent} from './cate/component/includes/search-item-userids';
 import {OrganizationChartComponent} from './cate/component/organisation/organization-chart.component';
 import {SearchService} from './cate/service/search/SearchService';
-import {ContactComponent} from './cate/view/contact/contact.component';
 
 import {PdfViewerModule} from 'ng2-pdf-viewer';
 
 import {HistorySearchDialogComponent} from './cate/view/history/history-search-dialog.component';
 import {OrganizationDemoComponent} from './cate/view/organizationdemo/organization-demo.component';
 import {SearchComponent} from './cate/view/search/search.component';
+import {SearchDetailComponent} from './cate/view/search/search-detail.component';
 import {UserSearchDialogComponent} from './cate/view/user/user-search-dialog.component';
 
 import {EmptyDemoComponent} from './cate/view/emptydemo.component';
@@ -114,6 +118,7 @@ registerLocaleData(localeDe);
 @NgModule({
     entryComponents: [
         HistorySearchDialogComponent,
+        UserDetailDialogComponent,
         UserSearchDialogComponent,
     ],
     imports: [
@@ -202,19 +207,23 @@ registerLocaleData(localeDe);
         AppFooterComponent,
 
         HistorySearchDialogComponent,
+        UserDetailDialogComponent,
         UserSearchDialogComponent,
         OrganizationChartComponent,
 
         ContactComponent,
         SearchComponent,
+        SearchDetailComponent,
         EmptyDemoComponent,
         DateFormatPipe,
         HeroDetailComponent,
-        OrganizationDemoComponent
+        OrganizationDemoComponent,
+        AdministrationComponent
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},
         {provide: LOCALE_ID, useValue: 'de'},
+        Location,
         CurrencyPipe,
         MockService,
         SearchService,
@@ -225,6 +234,3 @@ registerLocaleData(localeDe);
 })
 export class AppModule {
 }
-
-// PDF Viewer Module
-// platformBrowserDynamic().bootstrapModule(AppModule);

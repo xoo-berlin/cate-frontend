@@ -6,7 +6,7 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
 
-    public menuMode = 'overlay';
+    public menuMode = 'static';
     public menuActive = false;
 
     public topbarMenuActive = false;
